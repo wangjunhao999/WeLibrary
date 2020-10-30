@@ -15,7 +15,7 @@ def get_username(message):
 
 
 robot.config['HOST'] = '0.0.0.0'
-robot.config['PORT'] = 80
+robot.config['PORT'] = 10000
 robot.config["APP_ID"] = "wx395b40f4589090ce"
 robot.config['ENCODING_AES_KEY'] = 'yWNNztIzU9QCzi8Fu1B74Xe2prp3kpkX2aGqNdUJha4'
 robot.run()
