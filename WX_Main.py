@@ -1,11 +1,17 @@
 import werobot
+import re
 
 robot = werobot.WeRoBot(token='hello')
 
 
-@robot.text
-def hello_world():
-    return "Hello World!"
+@robot.filter(re.compile(".*?帮助.*?"))
+def help(message):
+    reply = "如需帮助,请联系管理员Email:1138700280@qq.com"
+    return reply
+
+
+def get_username(message):
+    pass
 
 
 robot.config['HOST'] = '0.0.0.0'
