@@ -11,7 +11,7 @@ def help(message):
     return reply
 
 
-@robot.filter(re.compile(".*?洛天依借记卡.*?"))
+@robot.filter(re.compile(".*?洛天依.*?"))
 def card(message):
     response = requests.post(
         url='https://cloud.bankofchina.com/sh/api/cas_SC/common/jjk/queryJJKCardProgress/esb',
