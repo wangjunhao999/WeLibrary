@@ -1,4 +1,5 @@
 import werobot
+import json
 import re
 import requests
 
@@ -19,8 +20,7 @@ def card(message):
             'name': '王蕾锦',
             'idType': '01',
             'id': '510524199907250817'
-        })
-    response = response.json()
+        }).json()
     status = response['data']['cardList'][0]['status']
     applyTypeChinese = {
         "01": "已受理",
@@ -41,8 +41,7 @@ def card(message):
     }
     statusOfChinese = applyTypeChinese.get(status)
     response['data']['cardList'][0]['status'] = statusOfChinese
-    print(response['data']['cardList'][0])
-    return response['data']['cardList'][0]
+    return json.dumps(response['data']['cardList'][0])
 
 
 robot.config['HOST'] = '0.0.0.0'
