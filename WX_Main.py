@@ -20,7 +20,25 @@ def card(message):
             'idType': '01',
             'id': '510524199907250817'
         })
-    return response.json()
+    status = response.json().get('data').get('cardList')[0].get('status')
+    applyTypeChinese = {
+        "01": "已受理",
+        "02": "审批处理中",
+        "03": "审批通过",
+        "12": "审批未通过",
+        "04": "待开卡",
+        "14": "开卡失败",
+        "05": "制卡中",
+        "06": "已寄发",
+        "07": "开卡成功",
+        "A2": "批量待处理",
+        "A3": "开客户号中",
+        "A4": "开卡中",
+        "A5": "待制三方信息中",
+        "A6": "三方信息制作中",
+        "A7": "待制卡函文件"
+    }
+    return applyTypeChinese.get(status)
 
 
 robot.config['HOST'] = '0.0.0.0'
