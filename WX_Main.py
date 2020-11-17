@@ -41,7 +41,7 @@ def card(message):
     }
     statusOfChinese = applyTypeChinese.get(status)
     response['data']['cardList'][0]['status'] = statusOfChinese
-    return json.dumps(response['data']['cardList'][0], encoding="utf-8")
+    return json.dumps(response['data']['cardList'][0], ensure_ascii=False)
 
 
 robot.config['HOST'] = '0.0.0.0'
