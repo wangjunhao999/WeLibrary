@@ -19,8 +19,8 @@ def card(message):
             'name': '王蕾锦',
             'idType': '01',
             'id': '510524199907250817'
-        })
-    status = response.json().get('data').get('cardList')[0].get('status')
+        }).json()
+    status = response.get('data').get('cardList')[0].get('status')
     applyTypeChinese = {
         "01": "已受理",
         "02": "审批处理中",
@@ -38,7 +38,9 @@ def card(message):
         "A6": "三方信息制作中",
         "A7": "待制卡函文件"
     }
-    return applyTypeChinese.get(status)
+    statusOfChinese = applyTypeChinese.get(status)
+    response['data']['cardList'][0]['status'] = statusOfChinese
+    return response
 
 
 robot.config['HOST'] = '0.0.0.0'
