@@ -49,6 +49,7 @@ def card(message):
 robot.config['HOST'] = '0.0.0.0'
 robot.config['PORT'] = 80
 robot.config["APP_ID"] = "wx395b40f4589090ce"
+robot.config["APP_SECRET"] = "31c557e7372f70189f30f6c43d645d30"
 robot.config['ENCODING_AES_KEY'] = 'yWNNztIzU9QCzi8Fu1B74Xe2prp3kpkX2aGqNdUJha4'
 
 client.create_menu({
