@@ -4,6 +4,7 @@ import re
 import requests
 
 robot = werobot.WeRoBot(token='hello')
+client = robot.client
 
 
 @robot.filter(re.compile(".*?帮助.*?"))
@@ -12,6 +13,7 @@ def help(message):
     return reply
 
 
+@robot.key_click("card")
 @robot.filter(re.compile(".*?洛天依.*?"))
 def card(message):
     response = requests.post(
@@ -48,4 +50,13 @@ robot.config['HOST'] = '0.0.0.0'
 robot.config['PORT'] = 80
 robot.config["APP_ID"] = "wx395b40f4589090ce"
 robot.config['ENCODING_AES_KEY'] = 'yWNNztIzU9QCzi8Fu1B74Xe2prp3kpkX2aGqNdUJha4'
+
+client.create_menu({
+    "button": [{
+        "type": "click",
+        "name": "洛天依借记卡",
+        "key": "card"
+    }]
+})
+
 robot.run()
